@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestellApp</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/logo.png" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js" defer></script>
 </head>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="./styles/standard.css">
-<link rel="stylesheet" href="./styles/assets.css">
-<link rel="stylesheet" href="./styles/fonts.css">
-<script src="./scripts/data.js"></script>
-<script src="./scripts/templates.js"></script>
-<script src="./script.js" defer></script>
+
 
 <body>
     <header class="page_header">
@@ -23,7 +25,6 @@
         <img src="./assets/icons/logo.png" alt="Burger Icon">
     </section>
     <section class="headline">
-        <!-- <img src="./assets/icons/logo.png" alt="Burger Icon"> -->
         <div class="headline_wrapper">
             <h1>BurgerHouse</h1>
             <div class="headline_rating">
@@ -36,17 +37,24 @@
 
     <main>
         <section class="main_wrapper">
-            <section class="main_burger">
-                <section class="menu_header">
-                    <div>
-                        <img src="./assets/icons/burger_icon.png" alt="burger icon">
-                        <h2>Burger & Sandwiches</h2>
-                    </div>
+            <section class="menu_wrapper">
+                <section class="main_burger">
+                    <details>
+                        <summary class="menu_header">
+                            <img class="menu_header_img" src="./assets/icons/burger_icon.png" alt="burger icon">
+                            <h2>Burger & Sandwiches</h2>
+                            <img src="./assets/icons/arrow_down.png" alt="arrow">
+                        </summary>
+                        <article id="burger_section">
+                            <p>Template Platzhalter</p>
+                        </article>
+                    </details>
                 </section>
+
+                <section class="main_pizza"></section>
+                <section class="main_salad"></section>
             </section>
 
-            <section class="main_pizza"></section>
-            <section class="main_salad"></section>
             <section class="basket_wrapper">
                 <div class="basket"></div>
             </section>
