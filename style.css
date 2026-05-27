@@ -89,6 +89,10 @@ body {
     top: -25px;
 }
 
+.menu_header_icon{
+    width: 25px;
+}
+
 h2{
     color: white;
     font-weight: bold;
