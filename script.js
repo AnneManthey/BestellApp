@@ -32,7 +32,7 @@ function renderSalad() {
 function renderBasket(index) {                          // index undefined? from addbasket lastseen/verloren
     const basketRef = document.getElementById("basket");
     basketRef.innerHTML = "";
-    if (basketList.length >= 0) {
+    if (basketList.length > 0) {
         basketRef.innerHTML += getBasketTemplate(index);
         renderBasketOrder();
     }
@@ -61,9 +61,9 @@ function getBurgerFromCard(index) {
 function addBurgerToBasket(index) {
     let menuObject = getBurgerFromCard(index);
     let basketIndex = getBasketListIndex(menuObject);
-    if (basketIndex == -1) {                                // warum zur Hölle ist der Index hier immer -1?
-        let burgerObject = {                                // ggf. direkt durch object ersetzen?
-            "name": menuList[0].burger[index].name,
+    if (basketIndex == -1) {                                
+        let burgerObject = {                                // ggf. direkt durch object ersetzen? dann kann ggf. unten
+            "name": menuList[0].burger[index].name,         // die index-function wieder mit indexOf funtionieren? 
             "price": menuList[0].burger[index].price,
             "amounts": 1
         }
@@ -76,7 +76,6 @@ function addBurgerToBasket(index) {
     renderBasket();
 }
 
-//if (basketList.includes(menuObject)){
 
 
 function getBasketListIndex(menuObject) {
@@ -88,16 +87,17 @@ function getBasketListIndex(menuObject) {
         return "-1";
     }
 }
-
 //     let i = basketList.indexOf(menuObject);
 
 
 // To Do:
 
-// function addToBasket
+
 // function für calculate total (basket)
 // funtion delete (basket)
 // function +1 (basket)
+
+//function für add pizza+salad hinzufügen
 
 // button img switch (menu)
 
