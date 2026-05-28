@@ -40,6 +40,44 @@ function renderBasket() {
             basketRef.innerHTML += getBasketTemplate(index);
         }
     }
+}
+
+// Basket Functions
+
+
+function getBurgerFromCard(index) {
+    const nameFromCard = menuList[0].burger[index].name;
+    return nameFromCard;
+}
+
+function getBasketListIndex(){
+    let i = basketList.indexOf(getBurgerFromCard());
+    if (i != null){
+        return i;
+    }
+    else{
+        return "-1";
+    }
+}
+
+
+function addBurgerToBasket(index) {
+    let basketIndex = getBasketListIndex(getBurgerFromCard(index))
+    if (basketIndex === -1) {
+        let burgerObject = {
+            "name": menuList[0].burger[index].name,
+            "price": menuList[0].burger[index].price,
+            "amounts": 1
+        }
+        basketList.push(burgerObject);
+    }
+    else{
+        let amount = getBasketListIndex(getBurgerFromCard(index))
+        basketList[basketIndex].amounts++;
+    }
+    
+    
+
 
 }
 
@@ -48,11 +86,17 @@ function renderBasket() {
 
 // To Do:
 
+// function addToBasket
+// function für calculate total (basket)
+// funtion delete (basket)
+// function +1 (basket)
 
-// Basket logik
-// Button onclick, push in Basket array
-// Message Danke für Bestellung
+// button img switch (menu)
+
 
 // Responsive Basket / Footer
 // Responsive Media
 // Imprint & Cookies
+
+// Optional:
+// render-functions zusammenlegen

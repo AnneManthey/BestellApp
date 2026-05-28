@@ -8,7 +8,7 @@ function getBurgerTemplate(index){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[0].burger[index].price)}</p>
-                    <button class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addBurgerToBasket(${index})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
