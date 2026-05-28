@@ -115,7 +115,9 @@ h2{
 
 .menu_card_wrapper{
     padding: 16px 50px;
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .menu_card{
@@ -124,6 +126,7 @@ h2{
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .menu_price{
