@@ -32,8 +32,7 @@ function renderSalad(){
 
 
 
-// JSON Arrays erstellen
-// Init Function & Templates rendern
+
 // Basket logik 
 // Basket rendern
 // Message Danke für Bestellung
