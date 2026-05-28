@@ -108,11 +108,11 @@ function getEmptyBasketTemplate(){
 
 function getBasketCardTemplate(index){
 return /*html*/`
-        <p>${basketList[index].name}</p>
+        <p>${basketList[index].amounts} x ${basketList[index].name}</p>
         <div class="basket_card_footer">
             <div class="basket_card_footer_left">
                 <button class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
-                <p>1</p>
+                <p>${basketList[index].amounts}</p>
                 <button class="add_btn">+</button>
             </div>
             <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[index].price)}</p>

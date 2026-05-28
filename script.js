@@ -41,7 +41,6 @@ function renderBasket(index) {                          // index undefined? from
         basketRef.innerHTML += getEmptyBasketTemplate();
     }
 }
-//for (let index = 0; index < basketList.length; index++) {
 
 function renderBasketOrder() {
     const basketOrderRef = document.getElementById("basket_card");
@@ -51,11 +50,7 @@ function renderBasketOrder() {
             basketOrderRef.innerHTML += getBasketCardTemplate(index);
         }
     
-
 }
-
-// Basket Functions
-
 
 function getBurgerFromCard(index) {
     const objectFromCard = menuList[0].burger[index];
@@ -66,27 +61,27 @@ function getBurgerFromCard(index) {
 function addBurgerToBasket(index) {
     let menuObject = getBurgerFromCard(index);
     let basketIndex = getBasketListIndex(menuObject);
-    if (basketIndex === -1) {
+    if (basketIndex == -1) {                                // warum zur Hölle ist der Index hier immer -1?
         let burgerObject = {                                // ggf. direkt durch object ersetzen?
             "name": menuList[0].burger[index].name,
             "price": menuList[0].burger[index].price,
             "amounts": 1
         }
         basketList.push(burgerObject);
-        console.log(burgerObject);
     }
     else {
         let amount = getBasketListIndex(getBurgerFromCard(index))
         basketList[basketIndex].amounts++;
     }
-
     renderBasket();
-
 }
 
+//if (basketList.includes(menuObject)){
+
+
 function getBasketListIndex(menuObject) {
-    let i = basketList.indexOf(menuObject);
-    if (i != null) {
+    let i = basketList.findIndex(item => item.name === menuObject.name);
+    if (i >= 0) {
         return i;
     }
     else {
@@ -94,7 +89,7 @@ function getBasketListIndex(menuObject) {
     }
 }
 
-
+//     let i = basketList.indexOf(menuObject);
 
 
 // To Do:
