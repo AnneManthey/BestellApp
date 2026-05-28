@@ -29,56 +29,69 @@ function renderSalad() {
     }
 }
 
-function renderBasket() {
+function renderBasket(index) {                          // index undefined? from addbasket lastseen/verloren
     const basketRef = document.getElementById("basket");
     basketRef.innerHTML = "";
-    if (basketList.length != null) {
+    if (basketList.length >= 0) {
+        basketRef.innerHTML += getBasketTemplate(index);
+        renderBasketOrder();
+    }
+
+    else {
         basketRef.innerHTML += getEmptyBasketTemplate();
     }
-    else {
+}
+//for (let index = 0; index < basketList.length; index++) {
+
+function renderBasketOrder() {
+    const basketOrderRef = document.getElementById("basket_card");
+    basketOrderRef.innerHTML = "";
+
         for (let index = 0; index < basketList.length; index++) {
-            basketRef.innerHTML += getBasketTemplate(index);
+            basketOrderRef.innerHTML += getBasketCardTemplate(index);
         }
-    }
+    
+
 }
 
 // Basket Functions
 
 
 function getBurgerFromCard(index) {
-    const nameFromCard = menuList[0].burger[index].name;
-    return nameFromCard;
-}
-
-function getBasketListIndex(){
-    let i = basketList.indexOf(getBurgerFromCard());
-    if (i != null){
-        return i;
-    }
-    else{
-        return "-1";
-    }
+    const objectFromCard = menuList[0].burger[index];
+    return objectFromCard;
 }
 
 
 function addBurgerToBasket(index) {
-    let basketIndex = getBasketListIndex(getBurgerFromCard(index))
+    let menuObject = getBurgerFromCard(index);
+    let basketIndex = getBasketListIndex(menuObject);
     if (basketIndex === -1) {
-        let burgerObject = {
+        let burgerObject = {                                // ggf. direkt durch object ersetzen?
             "name": menuList[0].burger[index].name,
             "price": menuList[0].burger[index].price,
             "amounts": 1
         }
         basketList.push(burgerObject);
+        console.log(burgerObject);
     }
-    else{
+    else {
         let amount = getBasketListIndex(getBurgerFromCard(index))
         basketList[basketIndex].amounts++;
     }
-    
-    
 
+    renderBasket();
 
+}
+
+function getBasketListIndex(menuObject) {
+    let i = basketList.indexOf(menuObject);
+    if (i != null) {
+        return i;
+    }
+    else {
+        return "-1";
+    }
 }
 
 
