@@ -85,3 +85,5 @@ const menuList = [
         ]
     }
 ]
+
+const basketList = []
