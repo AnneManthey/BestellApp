@@ -28,7 +28,7 @@ function renderMenus() {
 }
 
 
-function renderBasket() {                        
+function renderBasket() {
     const basketRef = document.getElementById("basket");
     basketRef.innerHTML = "";
     if (basketList.length > 0) {
@@ -52,22 +52,22 @@ function renderBasketOrder() {
 }
 
 
-function getMenuFromCard(indexMenus, indexItem, category){
-   return menuList[indexMenus][category][indexItem];
+function getMenuFromCard(indexMenus, indexItem, category) {
+    return menuList[indexMenus][category][indexItem];
 }
 
-function addMenuToBasket(indexMenus, indexItem, category){
-    let menuObject = getMenuFromCard (indexMenus, indexItem, category);
+function addMenuToBasket(indexMenus, indexItem, category) {
+    let menuObject = getMenuFromCard(indexMenus, indexItem, category);
     let basketIndex = getBasketListIndex(menuObject);
-    if(basketIndex == -1){
-        let newObject ={
+    if (basketIndex == -1) {
+        let newObject = {
             "name": menuObject.name,
             "price": menuObject.price,
-            "amounts":1
+            "amounts": 1
         }
-         basketList.push(newObject);
+        basketList.push(newObject);
     }
-    else{
+    else {
         basketList[basketIndex].amounts++;
         basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
     }
@@ -86,8 +86,14 @@ function getBasketListIndex(menuObject) {
 }
 //     let i = basketList.indexOf(menuObject);
 
-function deleteBasketMenu(basketIndex){
+function deleteBasketMenu(basketIndex) {
     let basketDelete = basketList.splice(basketIndex, 1);
+    renderBasket();
+}
+
+function increaseBasketMenu(basketIndex) {
+    basketList[basketIndex].amounts++;
+    basketList[basketIndex].price = basketList[basketIndex].price * basketList[basketIndex].amounts;
     renderBasket();
 }
 
@@ -97,7 +103,6 @@ function deleteBasketMenu(basketIndex){
 
 
 // function für calculate total (basket)
-// funtion delete (basket)
 // function +1 (basket)
 
 //function für add pizza+salad hinzufügen

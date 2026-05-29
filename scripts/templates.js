@@ -92,7 +92,7 @@ return /*html*/`
             <div class="basket_card_footer_left">
                 <button onclick="deleteBasketMenu(${basketIndex})" class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
                 <p>${basketList[basketIndex].amounts}</p>
-                <button class="add_btn">+</button>
+                <button onclick="increaseBasketMenu(${basketIndex})" class="add_btn">+</button>
             </div>
             <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[basketIndex].price)}</p>
         </div>
