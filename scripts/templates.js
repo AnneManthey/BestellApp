@@ -9,7 +9,7 @@ function getBurgerTemplate(indexMenus, indexBurgers){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].burger[indexBurgers].price)}</p>
-                    <button onclick="addBurgerToBasket(${indexMenus, indexBurgers})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexBurgers}, 'burger')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
@@ -25,7 +25,7 @@ function getPizzaTemplate(indexMenus, indexPizza){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].pizza[indexPizza].price)}</p>
-                    <button onclick="addPizzaToBasket(${indexMenus, indexPizza})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexPizza}, 'pizza')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
@@ -41,7 +41,7 @@ function getSaladTemplate(indexMenus, indexSalad){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].salad[indexSalad].price)}</p>
-                    <button onclick="addSaladToBasket(${indexMenus, indexSalad})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexSalad}, 'salad')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
