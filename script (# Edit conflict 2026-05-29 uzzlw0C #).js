@@ -61,25 +61,24 @@ function getMenuFromCard(indexMenus, indexItem, category) {
 function addMenuToBasket(indexMenus, indexItem, category) {
     let menuObject = getMenuFromCard(indexMenus, indexItem, category);
     let basketIndex = getBasketListIndex(menuObject);
-
+    
     if (basketIndex == -1) {
         let newObject = {
             "name": menuObject.name,
             "price": menuObject.price,
-            "basePrice": menuObject.price,
+            "basePrice":menuObject.price,
             "amounts": 1
         }
         basketList.push(newObject);
-        let counter = newObject.amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + counter;
-
+       
+        
     }
     else {
         basketList[basketIndex].amounts++;
         basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + basketList[basketIndex].amounts;
     }
-
+     let counter = basketList.amounts;
+        document.getElementById("button_add_to_basket").innerHTML = "Added" + counter;
     renderBasket();
     //renderMenus();
 
@@ -112,21 +111,20 @@ function increaseBasketMenu(basketIndex) {
 
 function decreaseBasketMenu(basketIndex) {
     let menu = basketList[basketIndex];
-    if (menu.amounts > 1) {
+    if(menu.amounts > 1){
         menu.amounts--;
         menu.price = menu.basePrice * menu.amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + basketList[basketIndex].amounts;
     }
-    else {
+    else{
         deleteBasketMenu(basketIndex);
     }
     renderBasket();
 }
 
-function calculateTotalPrice() {
+function calculateTotalPrice(){
     let totalPrice = 0;
-    for (let index = 0; index < basketList.length; index++) {
-        totalPrice += basketList[index].price;
+    for (let index=0; index < basketList.length; index++){
+        totalPrice +=basketList[index].price;
     }
     return totalPrice;
 }
@@ -135,14 +133,14 @@ function calculateTotalPrice() {
 
 // To Do:
 
-
+// button img switch (menu) oder einfach text? & anzahl 
 // Button versendet Nachricht/Bild anzeigen (copy&anpassen emptybasket), aufruf onclick funtion
 
 // CSS hübsch machen:
-//MenüCards gleichmäßig anpassen
-//button größe fest?
-//Basket Empty hübsch
-//Basket versendet nach
+    //MenüCards gleichmäßig anpassen
+    //button größe fest?
+    //Basket Empty hübsch
+    //Basket versendet nach
 
 
 // Responsive Basket / Footer
