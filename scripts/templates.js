@@ -50,7 +50,7 @@ function getSaladTemplate(indexMenus, indexSalad){
 function getBasketTemplate(){
     return /*html*/`
     <section>
-      <section id="basket_card" class="basket_card_wrapper">
+        <section id="basket_card" class="basket_card_wrapper">
         </section>
         <table class="basket_table">
             <tr>

@@ -124,11 +124,14 @@ function calculateTotalPrice(){
 
 // To Do:
 
+// button img switch (menu) oder einfach text? & anzahl 
+// Button versendet Nachricht/Bild anzeigen (copy&anpassen emptybasket), aufruf onclick funtion
 
-
-
-
-// button img switch (menu) oder einfach text?
+// CSS hübsch machen:
+    //MenüCards gleichmäßig anpassen
+    //button größe fest?
+    //Basket Empty hübsch
+    //Basket versendet nach
 
 
 // Responsive Basket / Footer
