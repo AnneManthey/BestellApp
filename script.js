@@ -1,33 +1,56 @@
 function init() {
-    renderBurger();
-    renderPizza();
-    renderSalad();
+    renderMenus()
     renderBasket();
 }
 
-function renderBurger() {
-    const burgerRef = document.getElementById("menu_burger");
-    burgerRef.innerHTML = "";
-    for (let index = 0; index < menuList[0].burger.length; index++) {
-        burgerRef.innerHTML += getBurgerTemplate(index);
+function renderMenus() {
+    let categoryRef = document.getElementById("menu_burger");
+    categoryRef.innerHTML = "";
+    for (let indexMenus = 0; indexMenus < menuList.length; indexMenus++) {
+        if ("burger" in menuList[indexMenus]) {
+            for (let indexBurgers = 0; indexBurgers < menuList[indexMenus].burger.length; indexBurgers++) {
+                categoryRef.innerHTML += getBurgerTemplate(indexMenus, indexBurgers);
+            }
+        }
+        else if ("pizza" in menuList[indexMenus]) {
+            for (let indexPizza = 0; indexPizza < menuList[indexMenus].pizza.length; indexPizza++) {
+                categoryRef = document.getElementById("menu_pizza");
+                categoryRef.innerHTML += getPizzaTemplate(indexMenus, indexPizza);
+            }
+        }
+        else if ("salad" in menuList[indexMenus]) {
+            for (let indexSalad = 0; indexSalad < menuList[indexMenus].salad.length; indexSalad++) {
+                categoryRef = document.getElementById("menu_salad");
+                categoryRef.innerHTML += getSaladTemplate(indexMenus, indexSalad);
+            }
+        }
     }
 }
 
-function renderPizza() {
-    const pizzaRef = document.getElementById("menu_pizza");
-    pizzaRef.innerHTML = "";
-    for (let index = 0; index < menuList[1].pizza.length; index++) {
-        pizzaRef.innerHTML += getPizzaTemplate(index);
-    }
-}
 
-function renderSalad() {
-    const saladRef = document.getElementById("menu_salad");
-    saladRef.innerHTML = "";
-    for (let index = 0; index < menuList[2].salad.length; index++) {
-        saladRef.innerHTML += getSaladTemplate(index);
-    }
-}
+// function renderBurger() {
+//     const burgerRef = document.getElementById("menu_burger");
+//     burgerRef.innerHTML = "";
+//     for (let index = 0; index < menuList[0].burger.length; index++) {
+//         burgerRef.innerHTML += getBurgerTemplate(index);
+//     }
+// }
+
+// function renderPizza() {
+//     const pizzaRef = document.getElementById("menu_pizza");
+//     pizzaRef.innerHTML = "";
+//     for (let index = 0; index < menuList[1].pizza.length; index++) {
+//         pizzaRef.innerHTML += getPizzaTemplate(index);
+//     }
+// }
+
+// function renderSalad() {
+//     const saladRef = document.getElementById("menu_salad");
+//     saladRef.innerHTML = "";
+//     for (let index = 0; index < menuList[2].salad.length; index++) {
+//         saladRef.innerHTML += getSaladTemplate(index);
+//     }
+// }
 
 function renderBasket(index) {                          // index undefined? from addbasket lastseen/verloren
     const basketRef = document.getElementById("basket");
@@ -46,10 +69,10 @@ function renderBasketOrder() {
     const basketOrderRef = document.getElementById("basket_card");
     basketOrderRef.innerHTML = "";
 
-        for (let index = 0; index < basketList.length; index++) {
-            basketOrderRef.innerHTML += getBasketCardTemplate(index);
-        }
-    
+    for (let index = 0; index < basketList.length; index++) {
+        basketOrderRef.innerHTML += getBasketCardTemplate(index);
+    }
+
 }
 
 function getBurgerFromCard(index) {
@@ -61,7 +84,7 @@ function getBurgerFromCard(index) {
 function addBurgerToBasket(index) {
     let menuObject = getBurgerFromCard(index);
     let basketIndex = getBasketListIndex(menuObject);
-    if (basketIndex == -1) {                                
+    if (basketIndex == -1) {
         let burgerObject = {                                // ggf. direkt durch object ersetzen? dann kann ggf. unten
             "name": menuList[0].burger[index].name,         // die index-function wieder mit indexOf funtionieren? 
             "price": menuList[0].burger[index].price,
@@ -70,8 +93,8 @@ function addBurgerToBasket(index) {
         basketList.push(burgerObject);
     }
     else {
-        let amount = getBasketListIndex(getBurgerFromCard(index))
         basketList[basketIndex].amounts++;
+        basketList[basketIndex].price = (basketList[basketIndex].price) * (basketList[basketIndex].amounts);
     }
     renderBasket();
 }
@@ -107,4 +130,4 @@ function getBasketListIndex(menuObject) {
 // Imprint & Cookies
 
 // Optional:
-// render-functions zusammenlegen
+// render-functions zusammenlegen, kategorie zu array hinzufügen und über if/else entsprechend rendern?

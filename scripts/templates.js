@@ -1,45 +1,46 @@
-function getBurgerTemplate(index){
+
+function getBurgerTemplate(indexMenus, indexBurgers){
     return /*html*/`
         <section class="menu_card">
-                <img src=${menuList[0].burger[index].image} alt="Burger Image">
+                <img src=${menuList[indexMenus].burger[indexBurgers].image} alt="Burger Image">
                 <div class="menu_text">
-                    <h3>${menuList[0].burger[index].name}</h3>
-                    <p>${menuList[0].burger[index].description}</p>
+                    <h3>${menuList[indexMenus].burger[indexBurgers].name}</h3>
+                    <p>${menuList[indexMenus].burger[indexBurgers].description}</p>
                 </div>
                 <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[0].burger[index].price)}</p>
-                    <button onclick="addBurgerToBasket(${index})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].burger[indexBurgers].price)}</p>
+                    <button onclick="addBurgerToBasket(${indexBurgers})" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
 }
 
-function getPizzaTemplate(index){
+function getPizzaTemplate(indexMenus, indexPizza){
     return /*html*/`
         <section class="menu_card">
-                <img src=${menuList[1].pizza[index].image} alt="Pizza Image">
+                <img src=${menuList[indexMenus].pizza[indexPizza].image} alt="Pizza Image">
                 <div class="menu_text">
-                    <h3>${menuList[1].pizza[index].name}</h3>
-                    <p>${menuList[1].pizza[index].description}</p>
+                    <h3>${menuList[indexMenus].pizza[indexPizza].name}</h3>
+                    <p>${menuList[indexMenus].pizza[indexPizza].description}</p>
                 </div>
                 <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[1].pizza[index].price)}</p>
+                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].pizza[indexPizza].price)}</p>
                     <button class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
     `
 }
 
-function getSaladTemplate(index){
+function getSaladTemplate(indexMenus, indexSalad){
     return /*html*/`
         <section class="menu_card">
-                <img src=${menuList[2].salad[index].image} alt="Salad Image">
+                <img src=${menuList[indexMenus].salad[indexSalad].image} alt="Salad Image">
                 <div class="menu_text">
-                    <h3>${menuList[2].salad[index].name}</h3>
-                    <p>${menuList[2].salad[index].description}</p>
+                    <h3>${menuList[indexMenus].salad[indexSalad].name}</h3>
+                    <p>${menuList[indexMenus].salad[indexSalad].description}</p>
                 </div>
                 <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[2].salad[index].price)}</p>
+                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].salad[indexSalad].price)}</p>
                     <button class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
                 </div>
         </section>
