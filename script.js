@@ -143,13 +143,9 @@ function orderReceived() {
     basketRef.innerHTML = "";
     basketRef.innerHTML += getOrderReceivedTemplate();
     basketList.length = 0;
+
     renderMenus();
 }
-
-
-
-
-
 
 
 // To Do:
