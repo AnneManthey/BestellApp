@@ -126,6 +126,8 @@ function calculateTotalPrice(){
 
 
 
+
+
 // button img switch (menu) oder einfach text?
 
 

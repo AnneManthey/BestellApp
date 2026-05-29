@@ -9,7 +9,7 @@ function getBurgerTemplate(indexMenus, indexBurgers){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].burger[indexBurgers].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexBurgers}, 'burger')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexBurgers}, 'burger')" class="add_basket_btn">add to basket</button>
                 </div>
         </section>
     `
@@ -25,7 +25,7 @@ function getPizzaTemplate(indexMenus, indexPizza){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].pizza[indexPizza].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexPizza}, 'pizza')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexPizza}, 'pizza')" class="add_basket_btn">add to basket</button>
                 </div>
         </section>
     `
@@ -41,7 +41,7 @@ function getSaladTemplate(indexMenus, indexSalad){
                 </div>
                 <div class="menu_price">
                     <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].salad[indexSalad].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexSalad}, 'salad')" class="button_img"><img src="./assets/icons/button Add.png"alt="Add to Basket"></button>
+                    <button onclick="addMenuToBasket(${indexMenus}, ${indexSalad}, 'salad')" class="add_basket_btn">add to basket</button>
                 </div>
         </section>
     `
@@ -49,6 +49,7 @@ function getSaladTemplate(indexMenus, indexSalad){
 
 function getBasketTemplate(){
     return /*html*/`
+    <section id="basket" class="basket_card_wrapper">
       <section class="basket_card" id="basket_card">
             <!-- <p>0 x Platzhalter</p>
             <div class="basket_card_footer">
@@ -74,7 +75,8 @@ function getBasketTemplate(){
                 <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
             </tr>
         </table>
-        <button class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>`
+        <button class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+    </section>`
 }
 
 function getEmptyBasketTemplate(){
