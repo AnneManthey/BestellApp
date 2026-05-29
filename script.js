@@ -112,17 +112,21 @@ function decreaseBasketMenu(basketIndex) {
     renderBasket();
 }
 
+function calculateTotalPrice(){
+    let totalPrice = 0;
+    for (let index=0; index < basketList.length; index++){
+        totalPrice +=basketList[index].price;
+    }
+    return totalPrice;
+}
+
 
 
 // To Do:
 
 
-// function für calculate total (basket)
-// function +1 (basket)
 
-//function für add pizza+salad hinzufügen
-
-// button img switch (menu)
+// button img switch (menu) oder einfach text?
 
 
 // Responsive Basket / Footer

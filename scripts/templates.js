@@ -63,7 +63,7 @@ function getBasketTemplate(){
         <table class="basket_table">
             <tr>
                 <td class="table_left">Subtotal</td>
-                <td class="table_right">00,00€</td>
+                <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice())}</td>
             </tr>
             <tr>
                 <td class="table_left">Delivery fee</td>
@@ -71,10 +71,10 @@ function getBasketTemplate(){
             </tr>
             <tr>
                 <th class="table_left">Total</th>
-                <th class="table_right">00,00€</th>
+                <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
             </tr>
         </table>
-        <button class="buy_btn">Buy now (00,00€)</button>`
+        <button class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>`
 }
 
 function getEmptyBasketTemplate(){
