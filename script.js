@@ -28,35 +28,11 @@ function renderMenus() {
 }
 
 
-// function renderBurger() {
-//     const burgerRef = document.getElementById("menu_burger");
-//     burgerRef.innerHTML = "";
-//     for (let index = 0; index < menuList[0].burger.length; index++) {
-//         burgerRef.innerHTML += getBurgerTemplate(index);
-//     }
-// }
-
-// function renderPizza() {
-//     const pizzaRef = document.getElementById("menu_pizza");
-//     pizzaRef.innerHTML = "";
-//     for (let index = 0; index < menuList[1].pizza.length; index++) {
-//         pizzaRef.innerHTML += getPizzaTemplate(index);
-//     }
-// }
-
-// function renderSalad() {
-//     const saladRef = document.getElementById("menu_salad");
-//     saladRef.innerHTML = "";
-//     for (let index = 0; index < menuList[2].salad.length; index++) {
-//         saladRef.innerHTML += getSaladTemplate(index);
-//     }
-// }
-
-function renderBasket(index) {                          // index undefined? from addbasket lastseen/verloren
+function renderBasket() {                        
     const basketRef = document.getElementById("basket");
     basketRef.innerHTML = "";
     if (basketList.length > 0) {
-        basketRef.innerHTML += getBasketTemplate(index);
+        basketRef.innerHTML += getBasketTemplate();
         renderBasketOrder();
     }
 
@@ -75,19 +51,22 @@ function renderBasketOrder() {
 
 }
 
-function getBurgerFromCard(index) {
-    const objectFromCard = menuList[0].burger[index];
+
+// Basket-functions:
+
+function getBurgerFromCard(indexMenus, indexBurgers) {
+    const objectFromCard = menuList[indexMenus].burger[indexBurgers];
     return objectFromCard;
 }
 
 
-function addBurgerToBasket(index) {
-    let menuObject = getBurgerFromCard(index);
+function addBurgerToBasket(indexMenus, indexBurgers) {
+    let menuObject = getBurgerFromCard(indexMenus, indexBurgers);
     let basketIndex = getBasketListIndex(menuObject);
     if (basketIndex == -1) {
         let burgerObject = {                                // ggf. direkt durch object ersetzen? dann kann ggf. unten
-            "name": menuList[0].burger[index].name,         // die index-function wieder mit indexOf funtionieren? 
-            "price": menuList[0].burger[index].price,
+            "name": menuList[indexMenus].burger[indexBurgers].name,         // die index-function wieder mit indexOf funtionieren? 
+            "price": menuList[indexMenus].burger[indexBurgers].price,
             "amounts": 1
         }
         basketList.push(burgerObject);
@@ -98,6 +77,61 @@ function addBurgerToBasket(index) {
     }
     renderBasket();
 }
+
+function getPizzaFromCard(indexMenus, indexPizza) {
+    const objectFromCard = menuList[indexMenus].pizza[indexPizza];
+    return objectFromCard;
+}
+
+function addPizzaToBasket(indexMenus, indexPizza) {
+    let menuObject = getPizzaFromCard(indexMenus, indexPizza);
+    let basketIndex = getBasketListIndex(menuObject);
+    if (basketIndex == -1) {
+        let pizzaObject = {                                // ggf. direkt durch object ersetzen? dann kann ggf. unten
+            "name": menuList[indexMenus].pizza[indexPizza].name,         // die index-function wieder mit indexOf funtionieren? 
+            "price": menuList[indexMenus].pizza[indexPizza].price,
+            "amounts": 1
+        }
+        basketList.push(pizzaObject);
+    }
+    else {
+        basketList[basketIndex].amounts++;
+        basketList[basketIndex].price = (basketList[basketIndex].price) * (basketList[basketIndex].amounts);
+    }
+    renderBasket();
+}
+
+function getSaladFromCard(indexMenus, indexSalad) {
+    const objectFromCard = menuList[indexMenus].salad[indexSalad];
+    return objectFromCard;
+}
+
+function addSaladToBasket(indexMenus, indexSalad) {
+    let menuObject = getSaladFromCard(indexMenus, indexSalad);
+    let basketIndex = getBasketListIndex(menuObject);
+    if (basketIndex == -1) {
+        let saladObject = {                                // ggf. direkt durch object ersetzen? dann kann ggf. unten
+            "name": menuList[indexMenus].salad[indexSalad].name,         // die index-function wieder mit indexOf funtionieren? 
+            "price": menuList[indexMenus].salad[indexSalad].price,
+            "amounts": 1
+        }
+        basketList.push(saladObject);
+    }
+    else {
+        basketList[basketIndex].amounts++;
+        basketList[basketIndex].price = (basketList[basketIndex].price) * (basketList[basketIndex].amounts);
+    }
+    renderBasket();
+}
+
+
+
+
+
+
+
+
+
 
 
 
