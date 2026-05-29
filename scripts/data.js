@@ -98,4 +98,4 @@ const menuList = [
     }
 ]
 
-const basketList = []
+let basketList = []
