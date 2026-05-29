@@ -63,6 +63,7 @@ function addMenuToBasket(indexMenus, indexItem, category) {
         let newObject = {
             "name": menuObject.name,
             "price": menuObject.price,
+            "basePrice":menuObject.price,
             "amounts": 1
         }
         basketList.push(newObject);
@@ -92,8 +93,22 @@ function deleteBasketMenu(basketIndex) {
 }
 
 function increaseBasketMenu(basketIndex) {
-    basketList[basketIndex].amounts++;
-    basketList[basketIndex].price = basketList[basketIndex].price * basketList[basketIndex].amounts;
+    let menu = basketList[basketIndex];
+    menu.amounts++;
+    menu.price = menu.basePrice * menu.amounts;
+
+    renderBasket();
+}
+
+function decreaseBasketMenu(basketIndex) {
+    let menu = basketList[basketIndex];
+    if(menu.amounts > 1){
+        menu.amounts--;
+        menu.price = menu.basePrice * menu.amounts;
+    }
+    else{
+        deleteBasketMenu(basketIndex);
+    }
     renderBasket();
 }
 

@@ -91,6 +91,7 @@ return /*html*/`
         <div class="basket_card_footer">
             <div class="basket_card_footer_left">
                 <button onclick="deleteBasketMenu(${basketIndex})" class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
+                <button onclick="decreaseBasketMenu(${basketIndex})" class="add_btn">-</button>
                 <p>${basketList[basketIndex].amounts}</p>
                 <button onclick="increaseBasketMenu(${basketIndex})" class="add_btn">+</button>
             </div>
