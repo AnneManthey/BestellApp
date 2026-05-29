@@ -72,9 +72,11 @@ function getBasketTemplate(){
 
 function getEmptyBasketTemplate(){
     return /*html*/`
-        <section class="basket_card">
-            <p>Your shopping cart is empty.</p>
-        </section>
+        <p>Nothing here yet.</p>
+        <p>Go ahead and choose something delicious!</p>
+        <section class="basket_card_empty">
+            <img class="empty_basket_img" src="./assets/icons/basket.png" alt="basket icon">
+        </section> 
         `
 }
 

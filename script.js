@@ -144,12 +144,12 @@ function calculateTotalPrice() {
 // To Do:
 
 
-// Button versendet Nachricht/Bild anzeigen (copy&anpassen emptybasket), aufruf onclick funtion
+// Button versendet Nachricht/Bild anzeigen, aufruf onclick funtion
 
 // CSS hübsch machen:
 //MenüCards gleichmäßig anpassen
 //button größe fest?
-//Basket Empty hübsch
+
 //Basket versendet nach
 
 
@@ -157,5 +157,3 @@ function calculateTotalPrice() {
 // Responsive Media
 // Imprint & Cookies
 
-// Optional:
-// render-functions zusammenlegen, kategorie zu array hinzufügen und über if/else entsprechend rendern?
