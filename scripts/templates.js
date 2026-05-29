@@ -49,17 +49,8 @@ function getSaladTemplate(indexMenus, indexSalad){
 
 function getBasketTemplate(){
     return /*html*/`
-    <section id="basket" class="basket_card_wrapper">
-      <section class="basket_card" id="basket_card">
-            <!-- <p>0 x Platzhalter</p>
-            <div class="basket_card_footer">
-                <div class="basket_card_footer_left">
-                    <button class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
-                    <p>1</p>
-                    <button class="add_btn">+</button>
-                </div>
-                <p>00,00€</p>
-            </div> -->
+    <section>
+      <section id="basket_card" class="basket_card_wrapper">
         </section>
         <table class="basket_table">
             <tr>
@@ -89,6 +80,7 @@ function getEmptyBasketTemplate(){
 
 function getBasketCardTemplate(basketIndex){
 return /*html*/`
+<section class="basket_card" >
         <p>${basketList[basketIndex].amounts} x ${basketList[basketIndex].name}</p>
         <div class="basket_card_footer">
             <div class="basket_card_footer_left">
@@ -99,5 +91,6 @@ return /*html*/`
             </div>
             <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[basketIndex].price)}</p>
         </div>
+        </section>
 `
 }
