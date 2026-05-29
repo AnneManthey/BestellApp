@@ -67,22 +67,24 @@ function addMenuToBasket(indexMenus, indexItem, category) {
             "name": menuObject.name,
             "price": menuObject.price,
             "basePrice": menuObject.price,
-            "amounts": 1
+            "amounts": 1,
+            "menuIndex": indexMenus,
+            "itemIndex": indexItem
         }
         basketList.push(newObject);
-        let counter = newObject.amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + counter;
-
+        basketIndex = basketList.length - 1;
+        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
+        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
+        buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
     }
     else {
         basketList[basketIndex].amounts++;
         basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + basketList[basketIndex].amounts;
+        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
+        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
     }
 
     renderBasket();
-    //renderMenus();
-
 }
 
 function getBasketListIndex(menuObject) {
@@ -97,8 +99,11 @@ function getBasketListIndex(menuObject) {
 //     let i = basketList.indexOf(menuObject);
 
 function deleteBasketMenu(basketIndex) {
+    let menu = basketList[basketIndex];
     let basketDelete = basketList.splice(basketIndex, 1);
-    document.getElementById("button_add_to_basket").innerHTML = "Add to basket";
+    const buttonRef = document.getElementById(`button_to_basket_${menu.menuIndex}_${menu.itemIndex}`)
+    buttonRef.innerHTML = "Add to basket";
+    buttonRef.style.backgroundColor = "white";
     renderBasket();
 }
 
@@ -106,6 +111,8 @@ function increaseBasketMenu(basketIndex) {
     let menu = basketList[basketIndex];
     menu.amounts++;
     menu.price = menu.basePrice * menu.amounts;
+    const buttonRef = document.getElementById(`button_to_basket_${menu.menuIndex}_${menu.itemIndex}`)
+    buttonRef.innerHTML = "Added " + menu.amounts;
 
     renderBasket();
 }
@@ -115,7 +122,8 @@ function decreaseBasketMenu(basketIndex) {
     if (menu.amounts > 1) {
         menu.amounts--;
         menu.price = menu.basePrice * menu.amounts;
-        document.getElementById("button_add_to_basket").innerHTML = "Added " + basketList[basketIndex].amounts;
+        const buttonRef = document.getElementById(`button_to_basket_${menu.menuIndex}_${menu.itemIndex}`)
+        buttonRef.innerHTML = "Added " + menu.amounts;
     }
     else {
         deleteBasketMenu(basketIndex);
