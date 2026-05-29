@@ -129,6 +129,10 @@ h2{
     gap: 16px;
 }
 
+.menu_text{
+    width: 500px;
+}
+
 .menu_price{
     display: flex;
     flex-direction: column;
@@ -137,6 +141,7 @@ h2{
 }
 
 .add_basket_btn{
+    width: 130px;
     background-color: white;
     color: black;
     border-radius: 20px;
@@ -209,12 +214,9 @@ h2{
 }
 
 .basket_card_empty{
-    
     display: flex;
     flex-direction: column;
-    
     border-radius: 8px ;
-    
 }
 
 .basket_card_footer{
@@ -230,6 +232,7 @@ h2{
 .add_btn{
     background-color: var(--light_orange);
     border: none;
+    cursor: pointer;
 }
 .basket_table{
     width: 100%;
@@ -256,6 +259,7 @@ h2{
     padding: 8px 12px;
     font-size: 1.3rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 

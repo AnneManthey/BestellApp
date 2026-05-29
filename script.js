@@ -113,7 +113,6 @@ function increaseBasketMenu(basketIndex) {
     menu.price = menu.basePrice * menu.amounts;
     const buttonRef = document.getElementById(`button_to_basket_${menu.menuIndex}_${menu.itemIndex}`)
     buttonRef.innerHTML = "Added " + menu.amounts;
-
     renderBasket();
 }
 
@@ -139,20 +138,26 @@ function calculateTotalPrice() {
     return totalPrice;
 }
 
+function orderReceived() {
+    const basketRef = document.getElementById("basket");
+    basketRef.innerHTML = "";
+    basketRef.innerHTML += getOrderReceivedTemplate();
+    basketList.length = 0;
+    renderMenus();
+}
+
+
+
+
+
 
 
 // To Do:
 
 
-// Button versendet Nachricht/Bild anzeigen, aufruf onclick funtion
+// Buttons bei Pizza/Salad fixen, rendern fixen?
 
-// CSS hübsch machen:
-//MenüCards gleichmäßig anpassen
-//button größe fest?
-
-//Basket versendet nach
-
-
+// CSS hübsch machen
 // Responsive Basket / Footer
 // Responsive Media
 // Imprint & Cookies

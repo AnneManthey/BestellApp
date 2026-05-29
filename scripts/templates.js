@@ -66,7 +66,7 @@ function getBasketTemplate(){
                 <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
             </tr>
         </table>
-        <button class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+        <button onclick="orderReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
     </section>`
 }
 
@@ -95,4 +95,14 @@ return /*html*/`
         </div>
         </section>
 `
+}
+
+function getOrderReceivedTemplate(){
+    return /*html*/`
+        <p>Order confirmed!</p>
+        <p>Your food is on the way.</p>
+        <section class="basket_card_empty">
+            <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
+        </section> 
+        `
 }
