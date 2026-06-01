@@ -3,6 +3,7 @@ const dialogBasketRef = document.getElementById("basket_dialog");
 function init() {
     renderMenus();
     renderBasket();
+    renderFooter();
 }
 
 function renderMenus() {
@@ -62,6 +63,11 @@ function renderDialogBasketOrder() {
     }
 }
 
+function renderFooter(){
+    const footerRef = document.getElementById("responsive_footer");
+    footerRef.innerHTML = "";
+    footerRef.innerHTML = getFooterTemplate();
+}
 
 function getMenuFromCard(indexMenus, indexItem, category) {         // returned Menu-object mit variablem Abgleich der category
     return menuList[indexMenus][category][indexItem];
@@ -90,6 +96,8 @@ function addMenuToBasket(indexMenus, indexItem, category) {
         switchAddButton(basketIndex, indexMenus, indexItem);
     }
     renderBasket();
+    renderFooter();
+    
 }
 
 function switchAddButton(basketIndex, indexMenus, indexItem) {
@@ -169,7 +177,6 @@ function orderDialogReceived() {
 
 
 
-
 // Dialog Basket
 
 
@@ -201,7 +208,7 @@ function closeDialogBasket() {
 
 
 
-// responsive footer orderzahl rendern?
+// responsive footer orderzahl fixen
 // CSS Dialog Basket fixen
 // Pfeile Kategorieleisten drehen
 
