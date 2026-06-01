@@ -98,13 +98,6 @@ function switchAddButton(basketIndex, indexMenus, indexItem) {
         buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
     }
 
-function resetAddButton(){
-
-}
-    
-
-
-
 function getBasketListIndex(menuObject) {
     let i = basketList.findIndex(item => item.name === menuObject.name);
     if (i >= 0) {
@@ -196,12 +189,13 @@ function closeDialogBasket() {
 
 // To Do:
 
-// funtion switchOrderButton
+
 
 // responsive footer orderzahl rendern?
 // CSS Dialog Basket hübsch machen
 // CSS Menus gleichmäßig anpassen
 // Pfeile Kategorieleisten drehen
+
 // Responsive: Basket ausblenden, Menü über 100% width, Responsive footer einblenden
 // Imprint & Cookies
 
