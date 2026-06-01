@@ -1,4 +1,4 @@
-
+const dialogBasketRef = document.getElementById("basket_dialog");
 
 function init() {
     renderMenus()
@@ -48,6 +48,16 @@ function renderBasket() {
 
 function renderBasketOrder() {
     const basketOrderRef = document.getElementById("basket_card");
+    basketOrderRef.innerHTML = "";
+
+    for (let index = 0; index < basketList.length; index++) {
+        basketOrderRef.innerHTML += getBasketCardTemplate(index);
+    }
+
+}
+
+function renderDialogBasketOrder() {
+    const basketOrderRef = document.getElementById("basket_card_dialog");
     basketOrderRef.innerHTML = "";
 
     for (let index = 0; index < basketList.length; index++) {
@@ -151,13 +161,40 @@ function orderReceived() {
 }
 
 
+
+
+// Dialog Basket
+
+
+function openDialogBasket() {
+    
+    dialogBasketRef.showModal();
+    
+    dialogBasketRef.innerHTML = "";
+    if (basketList.length > 0) {
+        dialogBasketRef.innerHTML += getDialogBasketTemplate();
+        renderDialogBasketOrder();
+    }
+
+    else {
+        dialogBasketRef.innerHTML += getEmptyDialogBasketTemplate();
+    }
+
+}
+
+function closeDialogBasket(){
+    event.stopPropagation();
+    dialogBasketRef.close();
+
+}
+
+
 // To Do:
 
-
+// Dialog Basket
 // Optional: Preis mit/ohne Lieferkosten berechnen
 
 // CSS hübsch machen
-// Responsive Basket / Footer
 // Responsive Media
 // Imprint & Cookies
 
