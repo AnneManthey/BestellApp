@@ -49,7 +49,7 @@ function getSaladTemplate(indexMenus, indexSalad){
 
 function getBasketTemplate(){
     return /*html*/`
-    <section>
+   
         <section id="basket_card" class="basket_card_wrapper">
         </section>
         <table class="basket_table">
@@ -67,7 +67,7 @@ function getBasketTemplate(){
             </tr>
         </table>
         <button onclick="orderReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
-    </section>`
+    `
 }
 
 function getEmptyBasketTemplate(){
@@ -82,7 +82,7 @@ function getEmptyBasketTemplate(){
 
 function getBasketCardTemplate(basketIndex){
 return /*html*/`
-<section class="basket_card" >
+    <section class="basket_card" >
         <p>${basketList[basketIndex].amounts} x ${basketList[basketIndex].name}</p>
         <div class="basket_card_footer">
             <div class="basket_card_footer_left">
@@ -93,7 +93,7 @@ return /*html*/`
             </div>
             <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[basketIndex].price)}</p>
         </div>
-        </section>
+    </section>
 `
 }
 

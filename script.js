@@ -154,7 +154,7 @@ function orderReceived() {
 // To Do:
 
 
-// Buttons bei Pizza/Salad fixen, rendern fixen?
+// Optional: Preis mit/ohne Lieferkosten berechnen
 
 // CSS hübsch machen
 // Responsive Basket / Footer
