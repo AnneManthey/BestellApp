@@ -1,7 +1,7 @@
 const dialogBasketRef = document.getElementById("basket_dialog");
 
 function init() {
-    renderMenus()
+    renderMenus();
     renderBasket();
 }
 
@@ -25,7 +25,6 @@ function renderMenus() {
             categoryRef = document.getElementById("menu_salad");
             categoryRef.innerHTML = "";
             for (let indexSalad = 0; indexSalad < menuList[indexMenus].salad.length; indexSalad++) {
-                categoryRef = document.getElementById("menu_salad");
                 categoryRef.innerHTML += getSaladTemplate(indexMenus, indexSalad);
             }
         }
@@ -40,7 +39,6 @@ function renderBasket() {
         basketRef.innerHTML += getBasketTemplate();
         renderBasketOrder();
     }
-
     else {
         basketRef.innerHTML += getEmptyBasketTemplate();
     }
@@ -53,7 +51,6 @@ function renderBasketOrder() {
     for (let index = 0; index < basketList.length; index++) {
         basketOrderRef.innerHTML += getBasketCardTemplate(index);
     }
-
 }
 
 function renderDialogBasketOrder() {
@@ -63,11 +60,10 @@ function renderDialogBasketOrder() {
     for (let index = 0; index < basketList.length; index++) {
         basketOrderRef.innerHTML += getBasketCardTemplate(index);
     }
-
 }
 
 
-function getMenuFromCard(indexMenus, indexItem, category) {
+function getMenuFromCard(indexMenus, indexItem, category) {         // returned Menu-object mit variablem Abgleich der category
     return menuList[indexMenus][category][indexItem];
 }
 
@@ -76,7 +72,7 @@ function addMenuToBasket(indexMenus, indexItem, category) {
     let basketIndex = getBasketListIndex(menuObject);
 
     if (basketIndex == -1) {
-        let newObject = {
+        let newMenuObject = {
             "name": menuObject.name,
             "price": menuObject.price,
             "basePrice": menuObject.price,
@@ -84,21 +80,30 @@ function addMenuToBasket(indexMenus, indexItem, category) {
             "menuIndex": indexMenus,
             "itemIndex": indexItem
         }
-        basketList.push(newObject);
+        basketList.push(newMenuObject);
         basketIndex = basketList.length - 1;
-        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
-        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
-        buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
+        switchAddButton(basketIndex, indexMenus, indexItem);
     }
     else {
         basketList[basketIndex].amounts++;
         basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
-        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
-        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
+        switchAddButton(basketIndex, indexMenus, indexItem);
     }
-
     renderBasket();
 }
+
+function switchAddButton(basketIndex, indexMenus, indexItem) {
+        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
+        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
+        buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
+    }
+
+function resetAddButton(){
+
+}
+    
+
+
 
 function getBasketListIndex(menuObject) {
     let i = basketList.findIndex(item => item.name === menuObject.name);
@@ -167,9 +172,9 @@ function orderReceived() {
 
 
 function openDialogBasket() {
-    
+
     dialogBasketRef.showModal();
-    
+
     dialogBasketRef.innerHTML = "";
     if (basketList.length > 0) {
         dialogBasketRef.innerHTML += getDialogBasketTemplate();
@@ -182,7 +187,7 @@ function openDialogBasket() {
 
 }
 
-function closeDialogBasket(){
+function closeDialogBasket() {
     event.stopPropagation();
     dialogBasketRef.close();
 
@@ -191,10 +196,19 @@ function closeDialogBasket(){
 
 // To Do:
 
-// Dialog Basket
+// funtion switchOrderButton
+
+// responsive footer orderzahl rendern?
+// CSS Dialog Basket hübsch machen
+// CSS Menus gleichmäßig anpassen
+// Pfeile Kategorieleisten drehen
+// Responsive: Basket ausblenden, Menü über 100% width, Responsive footer einblenden
+// Imprint & Cookies
+
+
+
+
 // Optional: Preis mit/ohne Lieferkosten berechnen
 
-// CSS hübsch machen
-// Responsive Media
-// Imprint & Cookies
+
 

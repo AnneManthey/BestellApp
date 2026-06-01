@@ -110,7 +110,17 @@ h2 {
 
 .menu_header_icon {
     width: 25px;
+    transform: rotate(-180deg);
+    
 }
+
+details{
+    padding: 10px;
+}
+
+/* details[open] img:nth-child(2)  {
+    transform: rotate(-180deg);
+} */
 
 
 .menu_card_wrapper {
@@ -128,6 +138,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    
 }
 
 .menu_card>img {
@@ -136,7 +147,8 @@ h2 {
 }
 
 .menu_text {
-    width: 500px;
+    max-width: 500px;
+    overflow-wrap:break-word;
 }
 
 .menu_price {
@@ -345,6 +357,9 @@ h2 {
 }
 
 @media screen and (max-width: 650px) {
+    
+
+    
     .page_footer {
         display: none;
     }
@@ -362,7 +377,13 @@ h2 {
 
 }
 
-@media screen and (max-width: 930px) {}
+@media screen and (max-width: 930px) {
+
+    .menu_card_wrapper {
+    padding: 16px 25px;
+    
+}
+}
 
 @media screen and (max-width: 1060px) {
 
