@@ -203,7 +203,6 @@ function closeDialogBasket() {
 
 // responsive footer orderzahl rendern?
 // CSS Dialog Basket fixen
-// CSS Menus gleichmäßig anpassen
 // Pfeile Kategorieleisten drehen
 
 
