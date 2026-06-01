@@ -158,6 +158,15 @@ function orderReceived() {
     renderMenus();
 }
 
+function orderDialogReceived() {
+    const basketRef = document.getElementById("basket_dialog");
+    basketRef.innerHTML = "";
+    basketRef.innerHTML += getOrderDialogReceivedTemplate();
+    basketList.length = 0;
+
+    renderMenus();
+}
+
 
 
 
@@ -173,7 +182,6 @@ function openDialogBasket() {
         dialogBasketRef.innerHTML += getDialogBasketTemplate();
         renderDialogBasketOrder();
     }
-
     else {
         dialogBasketRef.innerHTML += getEmptyDialogBasketTemplate();
     }
@@ -187,22 +195,24 @@ function closeDialogBasket() {
 }
 
 
+
+
 // To Do:
 
 
 
 // responsive footer orderzahl rendern?
-// CSS Dialog Basket hübsch machen
+// CSS Dialog Basket fixen
 // CSS Menus gleichmäßig anpassen
 // Pfeile Kategorieleisten drehen
 
-// Responsive: Basket ausblenden, Menü über 100% width, Responsive footer einblenden
+
 // Imprint & Cookies
 
 
 
 
-// Optional: Preis mit/ohne Lieferkosten berechnen
+// Optional: Preis mit/ohne Lieferkosten berechnen (if/else bei über 50€ warenwert)
 
 
 

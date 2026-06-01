@@ -112,7 +112,7 @@ function getOrderReceivedTemplate(){
 function getDialogBasketTemplate(){
     return /*html*/`
         <header class="basket_dialog_header">
-            <button onclick="closeDialogBasket()">X</button>
+            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
         </header>
         <section id="basket_card_dialog" class="basket_card_wrapper">
         </section>
@@ -130,19 +130,35 @@ function getDialogBasketTemplate(){
                 <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
             </tr>
         </table>
-        <button onclick="orderReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+        <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
     `
 }
 
 function getEmptyDialogBasketTemplate(){
     return /*html*/`
+    <section class="basket_dialog">
         <header class="basket_dialog_header">
-            <button onclick="closeDialogBasket()">X</button>
+            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
         </header>
+        
         <p>Nothing here yet.</p>
         <p>Go ahead and choose something delicious!</p>
         <section class="basket_card_empty">
             <img class="empty_basket_img" src="./assets/icons/basket.png" alt="basket icon">
+        </section> 
+    </section>
+    `
+}
+
+function getOrderDialogReceivedTemplate(){
+    return /*html*/`
+        <header class="basket_dialog_header">
+            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
+        </header>
+        <p>Order confirmed!</p>
+        <p>Your food is on the way.</p>
+        <section class="basket_card_empty">
+            <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
         </section> 
         `
 }
