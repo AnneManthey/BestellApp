@@ -15,12 +15,15 @@ function renderMenus() {
             }
         }
         else if ("pizza" in menuList[indexMenus]) {
+            categoryRef = document.getElementById("menu_pizza");
+            categoryRef.innerHTML = "";
             for (let indexPizza = 0; indexPizza < menuList[indexMenus].pizza.length; indexPizza++) {
-                categoryRef = document.getElementById("menu_pizza");
                 categoryRef.innerHTML += getPizzaTemplate(indexMenus, indexPizza);
             }
         }
         else if ("salad" in menuList[indexMenus]) {
+            categoryRef = document.getElementById("menu_salad");
+            categoryRef.innerHTML = "";
             for (let indexSalad = 0; indexSalad < menuList[indexMenus].salad.length; indexSalad++) {
                 categoryRef = document.getElementById("menu_salad");
                 categoryRef.innerHTML += getSaladTemplate(indexMenus, indexSalad);
