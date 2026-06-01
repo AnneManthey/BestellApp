@@ -2,15 +2,17 @@
 function getBurgerTemplate(indexMenus, indexBurgers){
     return /*html*/`
         <section class="menu_card">
+            <div class="menu_img_wrapper">
                 <img src=${menuList[indexMenus].burger[indexBurgers].image} alt="Burger Image">
                 <div class="menu_text">
                     <h3>${menuList[indexMenus].burger[indexBurgers].name}</h3>
                     <p>${menuList[indexMenus].burger[indexBurgers].description}</p>
                 </div>
-                <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].burger[indexBurgers].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexBurgers}, 'burger')" id="button_to_basket_${indexMenus}_${indexBurgers}" class="add_basket_btn">Add to basket</button>
-                </div>
+            </div>
+            <div class="menu_price">
+                <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].burger[indexBurgers].price)}</p>
+                <button onclick="addMenuToBasket(${indexMenus}, ${indexBurgers}, 'burger')" id="button_to_basket_${indexMenus}_${indexBurgers}" class="add_basket_btn">Add to basket</button>
+            </div>
         </section>
     `
 }
@@ -18,15 +20,17 @@ function getBurgerTemplate(indexMenus, indexBurgers){
 function getPizzaTemplate(indexMenus, indexPizza){
     return /*html*/`
         <section class="menu_card">
+            <div class="menu_img_wrapper">
                 <img src=${menuList[indexMenus].pizza[indexPizza].image} alt="Pizza Image">
                 <div class="menu_text">
                     <h3>${menuList[indexMenus].pizza[indexPizza].name}</h3>
                     <p>${menuList[indexMenus].pizza[indexPizza].description}</p>
                 </div>
-                <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].pizza[indexPizza].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexPizza}, 'pizza')" id="button_to_basket_${indexMenus}_${indexPizza}" class="add_basket_btn">Add to basket</button>
-                </div>
+            </div>
+            <div class="menu_price">
+                <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].pizza[indexPizza].price)}</p>
+                <button onclick="addMenuToBasket(${indexMenus}, ${indexPizza}, 'pizza')" id="button_to_basket_${indexMenus}_${indexPizza}" class="add_basket_btn">Add to basket</button>
+            </div>
         </section>
     `
 }
@@ -34,15 +38,17 @@ function getPizzaTemplate(indexMenus, indexPizza){
 function getSaladTemplate(indexMenus, indexSalad){
     return /*html*/`
         <section class="menu_card">
+            <div class="menu_img_wrapper">
                 <img src=${menuList[indexMenus].salad[indexSalad].image} alt="Salad Image">
                 <div class="menu_text">
                     <h3>${menuList[indexMenus].salad[indexSalad].name}</h3>
                     <p>${menuList[indexMenus].salad[indexSalad].description}</p>
                 </div>
-                <div class="menu_price">
-                    <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].salad[indexSalad].price)}</p>
-                    <button onclick="addMenuToBasket(${indexMenus}, ${indexSalad}, 'salad')" id="button_to_basket_${indexMenus}_${indexSalad}" class="add_basket_btn">Add to basket</button>
-                </div>
+            </div>
+            <div class="menu_price">
+                <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(menuList[indexMenus].salad[indexSalad].price)}</p>
+                <button onclick="addMenuToBasket(${indexMenus}, ${indexSalad}, 'salad')" id="button_to_basket_${indexMenus}_${indexSalad}" class="add_basket_btn">Add to basket</button>
+            </div>
         </section>
     `
 }

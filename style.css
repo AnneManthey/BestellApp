@@ -138,7 +138,11 @@ details {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+}
 
+.menu_img_wrapper{
+    display: flex;
+    gap: 24px;
 }
 
 .menu_card>img {
@@ -154,8 +158,8 @@ details {
 .menu_price {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-end;
+    gap: 48px;
     font-weight: bold;
 }
 
