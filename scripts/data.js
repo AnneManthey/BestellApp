@@ -36,7 +36,7 @@ const menuList = [
             {
                 "name": "Vegan Pizza Margherita",
                 "price": 11.90,
-                "description": "Tomato Sauce, Vegan Mozzarella",
+                "description": "Tomato Sauce, Vegan Mozzarella, fresh green Basil",
                 "image": "./assets/img/pizza_1.png",
                 "category":"pizza"
             },
@@ -75,7 +75,7 @@ const menuList = [
             {
                 "name": "Mini Green Salad",
                 "price": 7.90,
-                "description": "Green salad, Cucumber, Carrots, Parsley, Radishes",
+                "description": "Green salad, Cucumber, Carrots, Parsley, fresh Radishes",
                 "image": "./assets/img/salad_2.png",
                 "category":"salad"
             },
