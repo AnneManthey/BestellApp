@@ -1,3 +1,4 @@
+const basketRef = document.getElementById("basket");
 const dialogBasketRef = document.getElementById("basket_dialog");
 
 function init() {
@@ -34,14 +35,18 @@ function renderMenus() {
 
 
 function renderBasket() {
-    const basketRef = document.getElementById("basket");
     basketRef.innerHTML = "";
+    dialogBasketRef.innerHTML="";
     if (basketList.length > 0) {
         basketRef.innerHTML += getBasketTemplate();
+        dialogBasketRef.innerHTML += getDialogBasketTemplate();
         renderBasketOrder();
+        renderDialogBasketOrder();
+        
     }
     else {
         basketRef.innerHTML += getEmptyBasketTemplate();
+        dialogBasketRef.innerHTML+=getEmptyDialogBasketTemplate();
     }
 }
 
@@ -124,6 +129,7 @@ function deleteBasketMenu(basketIndex) {
     buttonRef.innerHTML = "Add to basket";
     buttonRef.style.backgroundColor = "white";
     renderBasket();
+    
 }
 
 function increaseBasketMenu(basketIndex) {
