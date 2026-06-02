@@ -81,14 +81,10 @@ h2 {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 5px;
-    border-radius: 4px;
+    padding: 5px;
+    border-radius: 5px;
     background-color: var(--light_orange);
 }
-
-/* Main content */
-
-
 
 .menu_header {
     width: 100%;

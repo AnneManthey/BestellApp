@@ -213,11 +213,6 @@ function closeDialogBasket() {
 
 
 
-// To Do:
-
-// CSS aufteilen/auslagern
-
-
 
 
 
