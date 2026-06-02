@@ -210,6 +210,11 @@ function closeDialogBasket() {
     dialogBasketRef.close();
 }
 
+// To do:
+
+// optional: Lieferkosten ab 50€ frei
+// JS kommentieren
+// Seite prüfen
 
 
 
