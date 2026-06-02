@@ -436,6 +436,28 @@ dialog::backdrop {
     padding: 2px;
 }
 
+/* Imprint */
+
+.imprint {
+  padding: 56px 120px 90px;
+  /* height: 100vh; */
+  /* min-height: calc(100vh - 297px); */
+}
+
+.imprint h1 {
+  padding: 16px;
+  font-weight: 600;
+}
+
+.imprint p {
+  padding: 16px;
+}
+
+.imprint h2 {
+  padding: 16px ;
+}
+
+
 @media screen and (max-width: 500px) {
 
     .hero>img {
