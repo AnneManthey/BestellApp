@@ -164,6 +164,7 @@ function orderReceived() {
     basketList.length = 0;
 
     renderMenus();
+    renderFooter();
 }
 
 function orderDialogReceived() {

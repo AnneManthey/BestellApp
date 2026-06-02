@@ -117,6 +117,7 @@ function getOrderReceivedTemplate(){
 
 function getDialogBasketTemplate(){
     return /*html*/`
+    <section class="basket_card_dialog_wrapper">
         <header class="basket_dialog_header">
             <button onclick="closeDialogBasket()" class="buy_btn">X</button>
         </header>
@@ -137,6 +138,7 @@ function getDialogBasketTemplate(){
             </tr>
         </table>
         <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+        </section>
     `
 }
 
