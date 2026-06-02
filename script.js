@@ -190,6 +190,7 @@ function orderDialogReceived() {
     basketRef.innerHTML += getOrderDialogReceivedTemplate();
     basketList.length = 0;
     renderMenus();
+    renderFooter();
 }
 
 function openDialogBasket() {
@@ -215,9 +216,8 @@ function closeDialogBasket() {
 // To Do:
 
 
-
-// Order confirmed hübsch machen
 // Pfeile Kategorieleisten drehen
+// CSS aufteilen/auslagern
 
 
 

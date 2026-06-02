@@ -250,6 +250,8 @@ dialog::backdrop {
 
 .basket_dialog_wrapper p {
     padding-top: 36px;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .basket_dialog_header {

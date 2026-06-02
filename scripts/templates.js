@@ -156,6 +156,7 @@ function getEmptyDialogBasketTemplate(){
 
 function getOrderDialogReceivedTemplate(){
     return /*html*/`
+    <section class="basket_dialog_wrapper">
         <header class="basket_dialog_header">
             <button onclick="closeDialogBasket()" class="buy_btn">X</button>
         </header>
@@ -164,6 +165,7 @@ function getOrderDialogReceivedTemplate(){
         <section class="basket_card_empty">
             <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
         </section> 
+    </section>
     `
 }
 
