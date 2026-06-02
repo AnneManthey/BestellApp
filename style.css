@@ -233,7 +233,7 @@ dialog::backdrop {
     background-color: rgba(54, 53, 52, 0.5);
 }
 
-.basket_card_dialog_wrapper{
+.basket_card_dialog_wrapper {
     display: flex;
     flex-direction: column;
 }
@@ -375,9 +375,6 @@ dialog::backdrop {
     cursor: pointer;
 }
 
-
-
-
 .page_footer {
     width: 100%;
     height: 120px;
@@ -414,17 +411,17 @@ dialog::backdrop {
     display: block;
 }
 
-.button_footer{
+.button_footer {
     position: relative;
 }
 
-.footer_counter{
+.footer_counter {
     position: absolute;
     top: 0;
     right: 0;
     color: var(--light_orange);
     background-color: var(--orange);
-    font-weight:bold;
+    font-weight: bold;
 
     min-width: 18px;
     height: 18px;
@@ -439,22 +436,22 @@ dialog::backdrop {
 /* Imprint */
 
 .imprint {
-  padding: 56px 120px 90px;
-  /* height: 100vh; */
-  /* min-height: calc(100vh - 297px); */
+    padding: 56px 120px 90px;
+    /* height: 100vh; */
+    /* min-height: calc(100vh - 297px); */
 }
 
 .imprint h1 {
-  padding: 16px;
-  font-weight: 600;
+    padding: 16px;
+    font-weight: 600;
 }
 
 .imprint p {
-  padding: 16px;
+    padding: 16px;
 }
 
 .imprint h2 {
-  padding: 16px ;
+    padding: 16px;
 }
 
 
@@ -473,7 +470,6 @@ dialog::backdrop {
     .menu_header {
         height: 50px;
         border-radius: 4px;
-
     }
 
     h2 {
@@ -490,7 +486,6 @@ dialog::backdrop {
         width: 25px;
         transform: rotate(-180deg);
     }
-
 
 }
 
@@ -515,13 +510,13 @@ dialog::backdrop {
     }
 
     .page_footer {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 8px;
-    background-color: var(--orange);
-}
+        width: 100%;
+        height: 120px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 8px;
+        background-color: var(--orange);
+    }
 
     .responsive_footer {
 
