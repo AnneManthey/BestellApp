@@ -111,16 +111,15 @@ h2 {
 
 .menu_header_icon {
     width: 25px;
-    transform: rotate(-180deg);
 }
 
 details {
     padding: 10px;
 }
 
-/* details[open] img:nth-child(2)  {
+details[open] .menu_header_icon {
     transform: rotate(-180deg);
-} */
+}
 
 
 .menu_card_wrapper {
@@ -486,7 +485,6 @@ dialog::backdrop {
 
     .menu_header_icon {
         width: 25px;
-        transform: rotate(-180deg);
     }
 
 }
