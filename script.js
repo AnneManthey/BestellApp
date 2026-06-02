@@ -7,30 +7,41 @@ function init() {
     renderFooter();
 }
 
-// shorten / split up
 function renderMenus() {
-    let categoryRef = document.getElementById("menu_burger");
-    categoryRef.innerHTML = "";
     for (let indexMenus = 0; indexMenus < menuList.length; indexMenus++) {
         if ("burger" in menuList[indexMenus]) {
-            for (let indexBurgers = 0; indexBurgers < menuList[indexMenus].burger.length; indexBurgers++) {
-                categoryRef.innerHTML += getBurgerTemplate(indexMenus, indexBurgers);
-            }
+            renderBurger(indexMenus);
         }
         else if ("pizza" in menuList[indexMenus]) {
-            categoryRef = document.getElementById("menu_pizza");
-            categoryRef.innerHTML = "";
-            for (let indexPizza = 0; indexPizza < menuList[indexMenus].pizza.length; indexPizza++) {
-                categoryRef.innerHTML += getPizzaTemplate(indexMenus, indexPizza);
-            }
+            renderPizza(indexMenus)
         }
         else if ("salad" in menuList[indexMenus]) {
-            categoryRef = document.getElementById("menu_salad");
-            categoryRef.innerHTML = "";
-            for (let indexSalad = 0; indexSalad < menuList[indexMenus].salad.length; indexSalad++) {
-                categoryRef.innerHTML += getSaladTemplate(indexMenus, indexSalad);
-            }
+            renderSalad(indexMenus)
         }
+    }
+}
+
+function renderBurger(indexMenus) {
+    let categoryRef = document.getElementById("menu_burger");
+    categoryRef.innerHTML = "";
+    for (let indexBurgers = 0; indexBurgers < menuList[indexMenus].burger.length; indexBurgers++) {
+        categoryRef.innerHTML += getBurgerTemplate(indexMenus, indexBurgers);
+    }
+}
+
+function renderPizza(indexMenus) {
+    categoryRef = document.getElementById("menu_pizza");
+    categoryRef.innerHTML = "";
+    for (let indexPizza = 0; indexPizza < menuList[indexMenus].pizza.length; indexPizza++) {
+        categoryRef.innerHTML += getPizzaTemplate(indexMenus, indexPizza);
+    }
+}
+
+function renderSalad(indexMenus) {
+    categoryRef = document.getElementById("menu_salad");
+    categoryRef.innerHTML = "";
+    for (let indexSalad = 0; indexSalad < menuList[indexMenus].salad.length; indexSalad++) {
+        categoryRef.innerHTML += getSaladTemplate(indexMenus, indexSalad);
     }
 }
 
