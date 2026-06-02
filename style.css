@@ -272,8 +272,6 @@ dialog::backdrop {
     align-items: center;
 }
 
-
-
 .empty_basket_img {
     width: 100px;
     padding-top: 36px;
@@ -287,14 +285,13 @@ dialog::backdrop {
 }
 
 .basket_card_wrapper {
-    max-height: 320px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     overflow-y: auto;
     align-items: center;
     text-align: center;
-    /* add custom scrollbar usw */
 }
 
 .basket_card_wrapper::-webkit-scrollbar {

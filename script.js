@@ -214,12 +214,12 @@ function closeDialogBasket() {
 
 
 
-// responsive footer orderzahl fixen
+
 // Optional: Preis mit/ohne Lieferkosten berechnen (if/else bei über 50€ warenwert)
 
-// CSS Dialog Basket fixen
 // Pfeile Kategorieleisten drehen
 
+// JS funktionen kürzen/aufteilen?
 
 // Imprint & Cookies
 
