@@ -7,6 +7,7 @@ function init() {
     renderFooter();
 }
 
+// shorten / split up
 function renderMenus() {
     let categoryRef = document.getElementById("menu_burger");
     categoryRef.innerHTML = "";
@@ -33,27 +34,24 @@ function renderMenus() {
     }
 }
 
-
 function renderBasket() {
     basketRef.innerHTML = "";
-    dialogBasketRef.innerHTML="";
+    dialogBasketRef.innerHTML = "";
     if (basketList.length > 0) {
         basketRef.innerHTML += getBasketTemplate();
         dialogBasketRef.innerHTML += getDialogBasketTemplate();
         renderBasketOrder();
         renderDialogBasketOrder();
-        
     }
     else {
         basketRef.innerHTML += getEmptyBasketTemplate();
-        dialogBasketRef.innerHTML+=getEmptyDialogBasketTemplate();
+        dialogBasketRef.innerHTML += getEmptyDialogBasketTemplate();
     }
 }
 
 function renderBasketOrder() {
     const basketOrderRef = document.getElementById("basket_card");
     basketOrderRef.innerHTML = "";
-
     for (let index = 0; index < basketList.length; index++) {
         basketOrderRef.innerHTML += getBasketCardTemplate(index);
     }
@@ -62,13 +60,12 @@ function renderBasketOrder() {
 function renderDialogBasketOrder() {
     const basketOrderRef = document.getElementById("basket_card_dialog");
     basketOrderRef.innerHTML = "";
-
     for (let index = 0; index < basketList.length; index++) {
         basketOrderRef.innerHTML += getBasketCardTemplate(index);
     }
 }
 
-function renderFooter(){
+function renderFooter() {
     const footerRef = document.getElementById("responsive_footer");
     footerRef.innerHTML = "";
     footerRef.innerHTML = getFooterTemplate();
@@ -78,10 +75,10 @@ function getMenuFromCard(indexMenus, indexItem, category) {         // returned 
     return menuList[indexMenus][category][indexItem];
 }
 
+// shorten / split up
 function addMenuToBasket(indexMenus, indexItem, category) {
     let menuObject = getMenuFromCard(indexMenus, indexItem, category);
     let basketIndex = getBasketListIndex(menuObject);
-
     if (basketIndex == -1) {
         let newMenuObject = {
             "name": menuObject.name,
@@ -102,25 +99,23 @@ function addMenuToBasket(indexMenus, indexItem, category) {
     }
     renderBasket();
     renderFooter();
-    
 }
 
 function switchAddButton(basketIndex, indexMenus, indexItem) {
-        const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
-        buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
-        buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
-    }
+    const buttonRef = document.getElementById(`button_to_basket_${indexMenus}_${indexItem}`);
+    buttonRef.innerHTML = "Added " + basketList[basketIndex].amounts;
+    buttonRef.style.backgroundColor = "rgba(231, 108, 31, 1)";
+}
 
 function getBasketListIndex(menuObject) {
-    let i = basketList.findIndex(item => item.name === menuObject.name);
-    if (i >= 0) {
+    let i = basketList.findIndex(item => item.name === menuObject.name);  // Sucht im basket nach einem object, 
+    if (i >= 0) {                                                         // dass genauso heißt wie das geklickte
         return i;
     }
     else {
         return "-1";
     }
 }
-//     let i = basketList.indexOf(menuObject);
 
 function deleteBasketMenu(basketIndex) {
     let menu = basketList[basketIndex];
@@ -129,7 +124,6 @@ function deleteBasketMenu(basketIndex) {
     buttonRef.innerHTML = "Add to basket";
     buttonRef.style.backgroundColor = "white";
     renderBasket();
-    
 }
 
 function increaseBasketMenu(basketIndex) {
@@ -168,7 +162,6 @@ function orderReceived() {
     basketRef.innerHTML = "";
     basketRef.innerHTML += getOrderReceivedTemplate();
     basketList.length = 0;
-
     renderMenus();
     renderFooter();
 }
@@ -178,17 +171,10 @@ function orderDialogReceived() {
     basketRef.innerHTML = "";
     basketRef.innerHTML += getOrderDialogReceivedTemplate();
     basketList.length = 0;
-
     renderMenus();
 }
 
-
-
-// Dialog Basket
-
-
 function openDialogBasket() {
-
     dialogBasketRef.showModal();
     dialogBasketRef.innerHTML = "";
     if (basketList.length > 0) {
@@ -198,13 +184,11 @@ function openDialogBasket() {
     else {
         dialogBasketRef.innerHTML += getEmptyDialogBasketTemplate();
     }
-
 }
 
 function closeDialogBasket() {
     event.stopPropagation();
     dialogBasketRef.close();
-
 }
 
 
@@ -214,14 +198,13 @@ function closeDialogBasket() {
 
 
 
-
-// Optional: Preis mit/ohne Lieferkosten berechnen (if/else bei über 50€ warenwert)
-
-// Pfeile Kategorieleisten drehen
-
 // JS funktionen kürzen/aufteilen?
 
-// Imprint & Cookies
+//
+// Pfeile Kategorieleisten drehen
+
+
+
 
 
 

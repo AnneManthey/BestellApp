@@ -62,7 +62,6 @@ const menuList = [
                 "category":"pizza"
             }
         ]
-
     },
     {
         "salad": [

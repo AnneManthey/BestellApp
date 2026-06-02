@@ -1,4 +1,3 @@
-
 function getBurgerTemplate(indexMenus, indexBurgers){
     return /*html*/`
         <section class="menu_card">
@@ -55,7 +54,6 @@ function getSaladTemplate(indexMenus, indexSalad){
 
 function getBasketTemplate(){
     return /*html*/`
-   
         <section id="basket_card" class="basket_card_wrapper">
         </section>
         <table class="basket_table">
@@ -83,7 +81,7 @@ function getEmptyBasketTemplate(){
         <section class="basket_card_empty">
             <img class="empty_basket_img" src="./assets/icons/basket.png" alt="basket icon">
         </section> 
-        `
+    `
 }
 
 function getBasketCardTemplate(basketIndex){
@@ -110,34 +108,32 @@ function getOrderReceivedTemplate(){
         <section class="basket_card_empty">
             <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
         </section> 
-        `
+    `
 }
-
-// Dialog
 
 function getDialogBasketTemplate(){
     return /*html*/`
-    <section class="basket_card_dialog_wrapper">
-        <header class="basket_dialog_header">
-            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
-        </header>
-        <section id="basket_card_dialog" class="basket_card_wrapper">
-        </section>
-        <table class="basket_table">
-            <tr>
-                <td class="table_left">Subtotal</td>
-                <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice())}</td>
-            </tr>
-            <tr>
-                <td class="table_left">Delivery fee</td>
-                <td class="table_right">4,99€</td>
-            </tr>
-            <tr>
-                <th class="table_left">Total</th>
-                <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
-            </tr>
-        </table>
-        <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+        <section class="basket_card_dialog_wrapper">
+            <header class="basket_dialog_header">
+              <button onclick="closeDialogBasket()" class="buy_btn">X</button>
+            </header>
+            <section id="basket_card_dialog" class="basket_card_wrapper">
+            </section>
+            <table class="basket_table">
+                <tr>
+                    <td class="table_left">Subtotal</td>
+                    <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice())}</td>
+                </tr>
+                <tr>
+                    <td class="table_left">Delivery fee</td>
+                    <td class="table_right">4,99€</td>
+                </tr>
+                <tr>
+                    <th class="table_left">Total</th>
+                    <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
+                </tr>
+            </table>
+            <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
         </section>
     `
 }
@@ -168,7 +164,7 @@ function getOrderDialogReceivedTemplate(){
         <section class="basket_card_empty">
             <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
         </section> 
-        `
+    `
 }
 
 function getFooterTemplate(){
@@ -180,7 +176,5 @@ function getFooterTemplate(){
             <img src="./assets/icons/basket.png"alt="Basket Icon">
             <span class="footer_counter">${basketList.length}</span>
         </button>
-            
-        
     `
 }
