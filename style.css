@@ -413,7 +413,30 @@ dialog::backdrop {
 }
 
 .responsive_footer img {
-    width: 30px;
+    width: 40px;
+    display: block;
+}
+
+.button_footer{
+    position: relative;
+}
+
+.footer_counter{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--light_orange);
+    background-color: var(--orange);
+    font-weight:bold;
+
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
 }
 
 @media screen and (max-width: 500px) {
