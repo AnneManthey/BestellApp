@@ -183,7 +183,6 @@ function orderDialogReceived() {
 function openDialogBasket() {
 
     dialogBasketRef.showModal();
-
     dialogBasketRef.innerHTML = "";
     if (basketList.length > 0) {
         dialogBasketRef.innerHTML += getDialogBasketTemplate();

@@ -142,7 +142,7 @@ function getDialogBasketTemplate(){
 
 function getEmptyDialogBasketTemplate(){
     return /*html*/`
-    <section class="basket_dialog">
+    <section class="basket_dialog_wrapper">
         <header class="basket_dialog_header">
             <button onclick="closeDialogBasket()" class="buy_btn">X</button>
         </header>
@@ -171,7 +171,7 @@ function getOrderDialogReceivedTemplate(){
 
 function getFooterTemplate(){
     return /*html*/`
-    <a href=""><img src="./assets/icons/Home.png" alt="Home Icon"></a>
+        <a href=""><img src="./assets/icons/Home.png" alt="Home Icon"></a>
         <a href=""><img src="./assets/icons/Profile.png" alt="Profile Icon"></a>
         <a href=""><img src="./assets/icons/orders.png" alt="Orderes Icon"></a>
         <button onclick="openDialogBasket()" id="footer_counter" class="button_img"><img src="./assets/icons/basket.png"
