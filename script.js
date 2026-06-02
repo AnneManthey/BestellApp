@@ -215,8 +215,6 @@ function closeDialogBasket() {
 
 // To Do:
 
-
-// Pfeile Kategorieleisten drehen
 // CSS aufteilen/auslagern
 
 
