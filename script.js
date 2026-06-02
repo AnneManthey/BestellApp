@@ -86,30 +86,37 @@ function getMenuFromCard(indexMenus, indexItem, category) {         // returned 
     return menuList[indexMenus][category][indexItem];
 }
 
-// shorten / split up
 function addMenuToBasket(indexMenus, indexItem, category) {
     let menuObject = getMenuFromCard(indexMenus, indexItem, category);
     let basketIndex = getBasketListIndex(menuObject);
     if (basketIndex == -1) {
-        let newMenuObject = {
-            "name": menuObject.name,
-            "price": menuObject.price,
-            "basePrice": menuObject.price,
-            "amounts": 1,
-            "menuIndex": indexMenus,
-            "itemIndex": indexItem
-        }
-        basketList.push(newMenuObject);
-        basketIndex = basketList.length - 1;
-        switchAddButton(basketIndex, indexMenus, indexItem);
+        pushObjectToBasket(menuObject, indexMenus, indexItem);
     }
     else {
-        basketList[basketIndex].amounts++;
-        basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
-        switchAddButton(basketIndex, indexMenus, indexItem);
+        increaseAmountInBasket(menuObject, basketIndex, indexMenus, indexItem);
     }
     renderBasket();
     renderFooter();
+}
+
+function pushObjectToBasket(menuObject, indexMenus, indexItem) {
+    let newMenuObject = {
+        "name": menuObject.name,
+        "price": menuObject.price,
+        "basePrice": menuObject.price,
+        "amounts": 1,
+        "menuIndex": indexMenus,
+        "itemIndex": indexItem
+    }
+    basketList.push(newMenuObject);
+    basketIndex = basketList.length - 1;
+    switchAddButton(basketIndex, indexMenus, indexItem);
+}
+
+function increaseAmountInBasket(menuObject, basketIndex, indexMenus, indexItem) {
+    basketList[basketIndex].amounts++;
+    basketList[basketIndex].price = menuObject.price * basketList[basketIndex].amounts;
+    switchAddButton(basketIndex, indexMenus, indexItem);
 }
 
 function switchAddButton(basketIndex, indexMenus, indexItem) {
@@ -209,9 +216,7 @@ function closeDialogBasket() {
 
 
 
-// JS funktionen kürzen/aufteilen?
-
-//
+// Order confirmed hübsch machen
 // Pfeile Kategorieleisten drehen
 
 
