@@ -82,15 +82,15 @@ function renderFooter() {
     footerRef.innerHTML = getFooterTemplate();
 }
 
-function getMenuFromCard(indexMenus, indexItem, category) {         // returned Menu-object mit variablem Abgleich der category
+function getDishFromCard(indexMenus, indexItem, category) {         // Returns the object with variable category matching.
     return menuList[indexMenus][category][indexItem];
 }
 
-function addMenuToBasket(indexMenus, indexItem, category) {
-    let menuObject = getMenuFromCard(indexMenus, indexItem, category);
+function addDishToBasket(indexMenus, indexItem, category) {
+    let menuObject = getDishFromCard(indexMenus, indexItem, category);
     let basketIndex = getBasketListIndex(menuObject);
     if (basketIndex == -1) {
-        pushObjectToBasket(menuObject, indexMenus, indexItem);
+        pushObjectToBasketList(menuObject, indexMenus, indexItem);
     }
     else {
         increaseAmountInBasket(menuObject, basketIndex, indexMenus, indexItem);
@@ -99,8 +99,8 @@ function addMenuToBasket(indexMenus, indexItem, category) {
     renderFooter();
 }
 
-function pushObjectToBasket(menuObject, indexMenus, indexItem) {
-    let newMenuObject = {
+function pushObjectToBasketList(menuObject, indexMenus, indexItem) {
+    let newDishObject = {
         "name": menuObject.name,
         "price": menuObject.price,
         "basePrice": menuObject.price,
@@ -108,7 +108,7 @@ function pushObjectToBasket(menuObject, indexMenus, indexItem) {
         "menuIndex": indexMenus,
         "itemIndex": indexItem
     }
-    basketList.push(newMenuObject);
+    basketList.push(newDishObject);
     basketIndex = basketList.length - 1;
     switchAddButton(basketIndex, indexMenus, indexItem);
 }
@@ -126,9 +126,9 @@ function switchAddButton(basketIndex, indexMenus, indexItem) {
 }
 
 function getBasketListIndex(menuObject) {
-    let i = basketList.findIndex(item => item.name === menuObject.name);  // Sucht im basket nach einem object, 
-    if (i >= 0) {                                                         // dass genauso heißt wie das geklickte
-        return i;
+    let i = basketList.findIndex(item => item.name === menuObject.name);  // Searches basket array for an object 
+    if (i >= 0) {                                                         // with the exact same name as clicked
+        return i;                                                         // and returns index if found
     }
     else {
         return "-1";
@@ -189,8 +189,7 @@ function orderDialogReceived() {
     basketRef.innerHTML = "";
     basketRef.innerHTML += getOrderDialogReceivedTemplate();
     basketList.length = 0;
-    renderMenus();
-    renderFooter();
+    orderReceived();
 }
 
 function openDialogBasket() {
@@ -213,7 +212,6 @@ function closeDialogBasket() {
 // To do:
 
 // optional: Lieferkosten ab 50€ frei
-// JS kommentieren
 // Seite prüfen
 
 
