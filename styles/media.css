@@ -4,13 +4,14 @@
         padding: 0px 30px;
     }
 
-    .page_header img:first-child{
+    .page_header img:first-child {
         height: 25px;
     }
 
-    .page_header img:last-child{
+    .page_header img:last-child {
         display: none;
     }
+
     .hero>img {
         width: 150px;
         height: 150px;
@@ -77,6 +78,9 @@
 
     .responsive_footer {
         display: flex;
+        position: sticky;
+        left: 0;
+        bottom: 0;
     }
 }
 
