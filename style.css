@@ -100,6 +100,7 @@ h2 {
     border-radius: 4px;
     padding-left: 90px;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 .menu_header_img {
@@ -110,6 +111,7 @@ h2 {
 
 .menu_header_icon {
     width: 25px;
+    
 }
 
 details {

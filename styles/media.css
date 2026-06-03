@@ -139,4 +139,8 @@
     main {
         padding: 100px max(200px, calc(50% - 720px));
     }
+
+    .imprint{
+        padding: 100px max(200px, calc(50% - 720px));
+    }
 }
