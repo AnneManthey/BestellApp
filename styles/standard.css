@@ -1,7 +1,7 @@
 :root {
     --orange: rgba(231, 108, 31, 1);
     --light_orange: rgba(253, 234, 220, 1);
-    --dark_grey: rgba(54, 53, 52, 1)
+    --dark_grey: rgba(54, 53, 52, 1);
 }
 
 * {

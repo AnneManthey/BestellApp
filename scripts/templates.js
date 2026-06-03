@@ -59,18 +59,18 @@ function getBasketTemplate(){
         <table class="basket_table">
             <tr>
                 <td class="table_left">Subtotal</td>
-                <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice())}</td>
+                <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice())}</td>
             </tr>
             <tr>
                 <td class="table_left">Delivery fee</td>
-                <td class="table_right">4,99€</td>
+                <td id="delivery_fee" class="table_right">4,99€</td>
             </tr>
             <tr>
                 <th class="table_left">Total</th>
-                <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
+                <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice()+4.99)}</th>
             </tr>
         </table>
-        <button onclick="orderReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+        <button onclick="orderReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice()+4.99)})</button>
     `
 }
 
@@ -85,20 +85,20 @@ function getEmptyBasketTemplate(){
 }
 
 function getBasketCardTemplate(basketIndex){
-return /*html*/`
-    <section class="basket_card" >
-        <p>${basketList[basketIndex].amounts} x ${basketList[basketIndex].name}</p>
-        <div class="basket_card_footer">
-            <div class="basket_card_footer_left">
-                <button onclick="deleteBasketMenu(${basketIndex})" class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
-                <button onclick="decreaseBasketMenu(${basketIndex})" class="add_btn">-</button>
-                <p>${basketList[basketIndex].amounts}</p>
-                <button onclick="increaseBasketMenu(${basketIndex})" class="add_btn">+</button>
+    return /*html*/`
+        <section class="basket_card" >
+            <p>${basketList[basketIndex].amounts} x ${basketList[basketIndex].name}</p>
+            <div class="basket_card_footer">
+                <div class="basket_card_footer_left">
+                    <button onclick="deleteBasketMenu(${basketIndex})" class="button_img"><img src="./assets/icons/delete.png"alt="delete icon"></button>
+                    <button onclick="decreaseBasketMenu(${basketIndex})" class="add_btn">-</button>
+                    <p>${basketList[basketIndex].amounts}</p>
+                    <button onclick="increaseBasketMenu(${basketIndex})" class="add_btn">+</button>
+                </div>
+                <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[basketIndex].price)}</p>
             </div>
-            <p>${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(basketList[basketIndex].price)}</p>
-        </div>
-    </section>
-`
+        </section>
+    `
 }
 
 function getOrderReceivedTemplate(){
@@ -122,56 +122,55 @@ function getDialogBasketTemplate(){
             <table class="basket_table">
                 <tr>
                     <td class="table_left">Subtotal</td>
-                    <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice())}</td>
+                    <td class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice())}</td>
                 </tr>
                 <tr>
                     <td class="table_left">Delivery fee</td>
-                    <td class="table_right">4,99€</td>
+                    <td id="delivery_fee_dialog" class="table_right">4,99€</td>
                 </tr>
                 <tr>
                     <th class="table_left">Total</th>
-                    <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)}</th>
+                    <th class="table_right">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice()+4.99)}</th>
                 </tr>
             </table>
-            <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculateTotalPrice()+4.99)})</button>
+            <button onclick="orderDialogReceived()" class="buy_btn">Buy now (${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(calculatePrice()+4.99)})</button>
         </section>
     `
 }
 
 function getEmptyDialogBasketTemplate(){
     return /*html*/`
-    <section class="basket_dialog_wrapper">
-        <header class="basket_dialog_header">
-            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
-        </header>
-        
-        <p>Nothing here yet.</p>
-        <p>Go ahead and choose something delicious!</p>
-        <section class="basket_card_empty">
-            <img class="empty_basket_img" src="./assets/icons/basket.png" alt="basket icon">
-        </section> 
-    </section>
+        <section class="basket_dialog_wrapper">
+            <header class="basket_dialog_header">
+                <button onclick="closeDialogBasket()" class="buy_btn">X</button>
+            </header>
+            <p>Nothing here yet.</p>
+            <p>Go ahead and choose something delicious!</p>
+            <section class="basket_card_empty">
+                <img class="empty_basket_img" src="./assets/icons/basket.png" alt="basket icon">
+            </section> 
+        </section>
     `
 }
 
 function getOrderDialogReceivedTemplate(){
     return /*html*/`
-    <section class="basket_dialog_wrapper">
-        <header class="basket_dialog_header">
-            <button onclick="closeDialogBasket()" class="buy_btn">X</button>
-        </header>
-        <p>Order confirmed!</p>
-        <p>Your food is on the way.</p>
-        <section class="basket_card_empty">
-            <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
-        </section> 
-    </section>
+        <section class="basket_dialog_wrapper">
+            <header class="basket_dialog_header">
+                <button onclick="closeDialogBasket()" class="buy_btn">X</button>
+            </header>
+            <p>Order confirmed!</p>
+            <p>Your food is on the way.</p>
+            <section class="basket_card_empty">
+                <img class="empty_basket_img" src="./assets/icons/ordered.png" alt="Delivery Car">
+            </section> 
+        </section>
     `
 }
 
 function getFooterTemplate(){
     return /*html*/`
-        <a href=""><img src="./assets/icons/Home.png" alt="Home Icon"></a>
+        <a href="#hero"><img src="./assets/icons/Home.png" alt="Home Icon"></a>
         <a href=""><img src="./assets/icons/Profile.png" alt="Profile Icon"></a>
         <a href=""><img src="./assets/icons/orders.png" alt="Orderes Icon"></a>
         <button onclick="openDialogBasket()" id="footer_counter" class="button_img button_footer">

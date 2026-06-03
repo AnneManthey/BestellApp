@@ -13,10 +13,10 @@ function renderMenus() {
             renderBurger(indexMenus);
         }
         else if ("pizza" in menuList[indexMenus]) {
-            renderPizza(indexMenus)
+            renderPizza(indexMenus);
         }
         else if ("salad" in menuList[indexMenus]) {
-            renderSalad(indexMenus)
+            renderSalad(indexMenus);
         }
     }
 }
@@ -167,12 +167,12 @@ function decreaseBasketMenu(basketIndex) {
     renderBasket();
 }
 
-function calculateTotalPrice() {
-    let totalPrice = 0;
+function calculatePrice() {
+    let orderPrice = 0;
     for (let index = 0; index < basketList.length; index++) {
-        totalPrice += basketList[index].price;
+        orderPrice += basketList[index].price;
     }
-    return totalPrice;
+    return orderPrice;
 }
 
 function orderReceived() {
@@ -209,10 +209,7 @@ function closeDialogBasket() {
     dialogBasketRef.close();
 }
 
-// To do:
 
-// optional: Lieferkosten ab 50€ frei
-// Seite prüfen
 
 
 
