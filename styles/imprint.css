@@ -1,0 +1,24 @@
+html {
+    font-family: 'Palanquin';
+    font-size: 16px;
+    height: 100dvh;
+}
+
+.imprint {
+    padding: 50px;
+}
+
+@media screen and (min-width: 1440px) {
+    .page_header {
+        padding: 0px max(200px, calc(50% - 720px));
+    }
+
+    main {
+        padding: 100px max(200px, calc(50% - 720px));
+    }
+
+    .imprint{
+        padding: 100px max(200px, calc(50% - 720px));
+    }
+}
+

@@ -5,9 +5,14 @@ html {
 
 body {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+}
+
+main{
+    flex: 1 0 auto;
 }
 
 h1 {
@@ -372,9 +377,6 @@ details[open] .menu_header_icon {
     padding: 2px;
 }
 
-.imprint {
-    padding: 50px;
-}
 
 
 
