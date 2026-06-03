@@ -78,9 +78,9 @@
 
     .responsive_footer {
         display: flex;
-        /* position: sticky;
+        position: sticky;
         left: 0;
-        bottom: 0; */
+        bottom: 0;
     }
 }
 
